@@ -1,4 +1,4 @@
-package fr.univavignon.pokecrawler;
+package fr.univavignon.pokedex;
 
 /**
  * Simple interface for Pokemon stats.
