@@ -1,1 +1,1 @@
-# ceri-m2-test
+# UCE Génie Logiciel Avancé : Techniques de tests
