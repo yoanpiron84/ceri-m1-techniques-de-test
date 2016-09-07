@@ -1,6 +1,7 @@
 package fr.univavignon.pokedex.api;
 
 /**
+ * Pokemon definition.
  *
  * @author fv
  */
