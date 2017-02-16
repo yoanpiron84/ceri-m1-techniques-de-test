@@ -1,8 +1,8 @@
 [
   {
-    name: 'TP1',
-    description: 'tp1.md',
-    issues: ['tp1-issue1.md', 'tp1-issue2.md'],
-    max_score: 2
+    'name': 'TP1',
+    'description': 'tp1.md',
+    'issues': ['tp1-issue1.md', 'tp1-issue2.md'],
+    'max_score': 2
   }
 ]
