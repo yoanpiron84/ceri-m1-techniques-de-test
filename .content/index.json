@@ -1,8 +1,17 @@
 [
   {
     'name': 'TP1',
-    'description': 'tp1.md',
-    'issues': ['tp1-issue1.md', 'tp1-issue2.md'],
+    'content': 'tp1.md',
+    'issues': [
+      {
+        'name': 'Ecrire fichier pom.xml',
+        'content': 'tp1-issue1.md'
+      }, 
+      {
+        'name': '',
+        'content': 'tp1-issue2.md'
+      }
+    ],
     'max_score': 2
   }
 ]
