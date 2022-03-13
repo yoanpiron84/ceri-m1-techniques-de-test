@@ -3,7 +3,7 @@
 ## Épisode 1 - Récupération de l'API
 
 La partie spécification ainsi que l’écriture de l’architecture applicative n’est pas à faire dans  le cadre de ce TP. Elle est donnée et doit être récupérée sur [GitHub](https://github.com), si vous n'avez pas de compte GitHub, c'est le moment d'en créer un.  
-Une fois connecté sur GitHub, rendez-vous à [cette adresse](https://github.com/Youkoulanda/ceri-m1-techniques-de-test) et cliquez sur le  bouton "Fork" en haut à droite.
+Une fois connecté sur GitHub, rendez-vous à [cette adresse](https://github.com/Youkoulanda/ceri-m1-techniques-de-test) et cliquez sur le bouton "Fork" en haut à droite.
 
 Le fork du projet fait une copie intégrale du repository sur votre compte.  
 C’est ce projet "forké" que vous utiliserez comme base de travail.  
@@ -24,7 +24,7 @@ Ce package expose l’API de notre application qui est décrite par le diagramme
 
 ## Épisode 2 - Création du projet Maven
 
-Comme vu en cours, la création d’un projet d’un projet Maven consiste uniquement à écrire  un fichier nommé pom.xml et d’y décrire les cycles de vie de notre application.  
+Comme vu en cours, la création d’un projet d’un projet Maven consiste uniquement à écrire  un fichier nommé `pom.xml` et d’y décrire les cycles de vie de notre application.  
 Dans le cadre de  projet il nous faut définir :
 
 - Les méta informations (nom, version , etc …)
