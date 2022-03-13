@@ -22,7 +22,7 @@ Nous vous invitons également à enrichir votre README avec un peu de documentat
 ## Épisode 3 - Make it work !
 
 Tout est prêt pour attaquer l’implémentation !  
-Tâchez de développer les implémentation des interfaces en maintenant un niveau de qualité optimal.   
+Tâchez de développer les implémentation des interfaces en maintenant un niveau de qualité optimal.  
 Les détails d’implémentation pourront être discutés avec l'intervenant lors des séances de TP.
 
 <p align="center" style="color: #ffcb05; font-size: 2rem;">
