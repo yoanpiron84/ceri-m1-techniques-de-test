@@ -21,7 +21,7 @@ Le tableau de bord résume l’ensemble des builds effectués pour vos projets G
         src="images/circleci_dashboard.png"
         title="Dashboard CircleCI"
     />
-</p>>
+</p>
 
 ## Épisode 2 - circle.yml
 
