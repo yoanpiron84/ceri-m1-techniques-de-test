@@ -25,13 +25,14 @@ Le dossier `src` contient la définition de l'ensemble des interfaces qui seront
 
 Le rendu des TPs se fait au rythme suivant :
 
-- TP1 : 1ère séance
+- TP1 : 2ème séance
 - TP2 : 2ème séance
 - TP3 : 3ème séance
 - TP4 : 5ème séance
 - TP5 : dernière séance
 - TP6 : dernière séance
 
-Pour chaque rendu, le projet dans son intégralité doit être déposé sur la plateforme.
+Pour chaque rendu vous devez créer un tag à partir du commit qui correspond à la complétion du TP.  
+Si vous ne spécifiez pas de tag, le dernier commit à la date-heure de la fin de séance sera celui considéré.
 
 [^1]: Si vous n’êtes vraiment pas à l’aise avec cet outil nous vous conseillons quand même vivement de vous y mettre.
