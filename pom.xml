@@ -10,11 +10,26 @@ http://maven.apache.org/maven-v4_0_0.xsd"
     <artifactId>ceri-m1-techniques-de-test</artifactId>
     <packaging>jar</packaging>
     <version>1.0</version>
+    <dependencies>
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-core</artifactId>
+            <version>4.9.0</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.13.1</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
 
     <name>TP</name>
     <url> http://maven.apache.org </url>
 
     <build>
+        <testSourceDirectory>src/test/java</testSourceDirectory>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -25,6 +40,7 @@ http://maven.apache.org/maven-v4_0_0.xsd"
                     <target>1.8</target>
                 </configuration>
             </plugin>
+
         </plugins>
     </build>
     
