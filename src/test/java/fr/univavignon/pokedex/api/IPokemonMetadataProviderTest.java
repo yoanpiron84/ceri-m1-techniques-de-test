@@ -24,7 +24,7 @@ public class IPokemonMetadataProviderTest {
 
     @Test
     public void shouldReturnBulbizarreWhen0() throws PokedexException {
-        assertEquals("Bulbizarre",pokemonMetadataProvider.getPokemonMetadata(0).getName());
+        assertEquals("Bulbizarreee",pokemonMetadataProvider.getPokemonMetadata(0).getName());
     }
 
 }
