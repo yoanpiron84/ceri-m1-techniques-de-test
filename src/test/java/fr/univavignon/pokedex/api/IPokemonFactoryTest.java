@@ -10,9 +10,10 @@ import fr.univavignon.pokedex.api.IPokemonFactory;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-@ExtendWith(MockitoExtension.class)
+
 public class IPokemonFactoryTest {
 
     @Mock
@@ -20,6 +21,8 @@ public class IPokemonFactoryTest {
 
     @BeforeEach
     public void setUp() throws PokedexException {
+        pokemonFactory = mock(IPokemonFactory.class);
+
         when(pokemonFactory.createPokemon(0, 613, 64, 4000, 4))
                 .thenReturn(new Pokemon(0, "Bulbizarre", 126, 126, 90, 613, 64, 4000, 4, 56));
 
@@ -30,12 +33,13 @@ public class IPokemonFactoryTest {
 
     @Test
     public void shouldThrowExceptionWhenIndexNegative() {
-        assertThrows(PokedexException.class,
-                () -> pokemonFactory.createPokemon(-1, 613, 64, 4000, 4));
+        assertThrows(PokedexException.class, () -> {
+            pokemonFactory.createPokemon(-1, 613, 64, 4000, 4);
+        });
     }
 
     @Test
-    public void shouldReturnPokemonName(){
+    public void shouldReturnPokemonName() throws PokedexException {
         assertEquals("Bulbizarre", pokemonFactory.createPokemon(0, 613, 64, 4000, 4).getName());
     }
 }
