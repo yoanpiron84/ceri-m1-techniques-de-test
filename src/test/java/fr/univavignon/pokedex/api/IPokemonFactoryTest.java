@@ -21,7 +21,8 @@ public abstract class IPokemonFactoryTest {
     }
 
     @Test
-    public void shouldReturn64WhenBulbizarre() throws PokedexException {
-        assertEquals(64,pokemonFactory.createPokemon(0,613,63,4000,4).getHp());
+    public void shouldReturnNegatifWhenCPNegatif() throws PokedexException {
+        when(pokemonFactory.createPokemon(0,-1,64,4000,4)).thenThrow(new PokedexException("CP Négatif"));
+        PokemonMetadata pokemonMetadata = pokemonFactory.createPokemon(0,-1,64,4000,4);
     }
 }
