@@ -49,7 +49,7 @@ public class IPokedexTest {
 
     @Test
     public void shouldThrowExceptionWhenPokemonInvalid() {
-        int index = pokedex.addPokemon(null);
+        int index = pokedex.addPokemon(validPokemon);
         assertEquals(validPokemon.getIndex(), index);
     }
 

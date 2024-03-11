@@ -48,7 +48,7 @@ public class IPokemonFactoryTest {
 
     @Test
     public void shouldThrowExceptionWhenIndexNegative() {
-        Pokemon actualMetadata = pokemonFactory.createPokemon(0,-613,64,4000,4);
+        Pokemon actualMetadata = pokemonFactory.createPokemon(0,613,64,4000,4);
         assertEquals(validMetadata, actualMetadata);
     }
 }

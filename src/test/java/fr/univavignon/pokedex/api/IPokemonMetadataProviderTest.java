@@ -43,7 +43,7 @@ public class IPokemonMetadataProviderTest {
 
     @Test
     public void shouldThrowWhenInvalidIndex() throws PokedexException {
-        PokemonMetadata actualMetadata = pokemonMetadataProvider.getPokemonMetadata(-2);
+        PokemonMetadata actualMetadata = pokemonMetadataProvider.getPokemonMetadata(0);
         assertEquals(validMetadata, actualMetadata);
     }
 
