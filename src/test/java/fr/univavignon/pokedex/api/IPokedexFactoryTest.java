@@ -23,10 +23,9 @@ public class IPokedexFactoryTest {
         when(pokedexFactory.createPokedex(metadataProvider, pokemonFactory)).thenReturn(pokedex);
     }
 
-//    @Test
-//    public void testCreatePokedex() {
-//    IPokedex pokedex = pokedexFactory.createPokedex(metadataProvider, pokemonFactory);
-//        assertEquals(metadataProvider, pokedex.getMetadataProvider());
-//        assertEquals(pokemonFactory, pokedex.getPokemonFactory());
-//    }
+    @Test
+    public void testCreatePokedex() throws PokedexException {
+
+    }
 }
+

@@ -31,9 +31,15 @@ public class IPokemonFactoryTest {
 
         Mockito.when(pokemonFactory.createPokemon(anyInt(), anyInt(), Mockito.eq(64), Mockito.eq(4000), Mockito.eq(4)
         )).thenAnswer(invocation -> {
+            int index = invocation.getArgument(0);
             int cp = invocation.getArgument(1);
-            if (cp < 0) {
+            int hp = invocation.getArgument(2);
+            if (index < 0) {
+                throw new PokedexException("Index non valide");
+            } else if(cp < 0){
                 throw new PokedexException("CP non valide");
+            } else if(hp < 0){
+                throw new PokedexException("HP non valide");
             } else {
                 return validMetadata;
             }
