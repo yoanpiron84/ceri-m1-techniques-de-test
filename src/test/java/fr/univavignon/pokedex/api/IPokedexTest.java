@@ -24,11 +24,13 @@ public class IPokedexTest {
 
         pokedex = mock(IPokedex.class);
 
-        validPokemon = new Pokemon(0, "Bulbizarre", 126, 126, 90, 613, 64, 4000, 4, 2.0);
+        validPokemon = new Pokemon(1, "Bulbizarre", 126, 126, 90, 613, 64, 4000, 4, 2.0);
 
         Mockito.when(pokedex.addPokemon(Mockito.any(Pokemon.class))).thenAnswer(invocation -> {
             Pokemon pokemon = invocation.getArgument(0);
+            System.out.println(pokemon.getIndex());
             if (pokemon == null) {
+                System.out.println("test");
                 throw new PokedexException("Pokémon non valide");
             } else {
                 return pokemon.getIndex();
