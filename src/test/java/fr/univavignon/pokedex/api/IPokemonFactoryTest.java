@@ -17,14 +17,13 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 
-@ExtendWith(MockitoExtension.class)
 public class IPokemonFactoryTest {
 
     @Mock
     public IPokemonFactory pokemonFactory;
     private Pokemon validMetadata;
 
-    @Before
+    @BeforeEach
     public void setUp() throws PokedexException {
         pokemonFactory = mock(IPokemonFactory.class);
 
