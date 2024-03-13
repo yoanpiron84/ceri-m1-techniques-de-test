@@ -34,12 +34,18 @@ public class IPokemonFactoryTest {
             int index = invocation.getArgument(0);
             int cp = invocation.getArgument(1);
             int hp = invocation.getArgument(2);
+            int dust = invocation.getArgument(3);
+            int candy = invocation.getArgument(4);
             if (index < 0) {
                 throw new PokedexException("Index non valide");
             } else if(cp < 0){
                 throw new PokedexException("CP non valide");
-            } else if(hp < 0){
+            } else if(hp < 0) {
                 throw new PokedexException("HP non valide");
+            } else if(dust < 0){
+                    throw new PokedexException("Dust non valide");
+            } else if(candy < 0){
+                throw new PokedexException("Candy non valide");
             } else {
                 return validMetadata;
             }
@@ -47,9 +53,33 @@ public class IPokemonFactoryTest {
     }
 
     @Test
-    public void shouldReturnPokemonName() throws PokedexException {
+    public void shouldReturnPokemonWhenIndex() throws PokedexException {
         Pokemon actualMetadata = pokemonFactory.createPokemon(0,613,64,4000,4);
-        assertEquals(validMetadata, actualMetadata);
+        assertEquals(validMetadata.getIndex(), actualMetadata.getIndex());
+    }
+
+    @Test
+    public void shouldReturnPokemonWhenCP() throws PokedexException {
+        Pokemon actualMetadata = pokemonFactory.createPokemon(0,613,64,4000,4);
+        assertEquals(validMetadata.getCp(), actualMetadata.getCp());
+    }
+
+    @Test
+    public void shouldReturnPokemonWhenHP() throws PokedexException {
+        Pokemon actualMetadata = pokemonFactory.createPokemon(0,613,64,4000,4);
+        assertEquals(validMetadata.getHp(), actualMetadata.getHp());
+    }
+
+    @Test
+    public void shouldReturnPokemonWhenDust() throws PokedexException {
+        Pokemon actualMetadata = pokemonFactory.createPokemon(0,613,64,4000,4);
+        assertEquals(validMetadata.getDust(), actualMetadata.getDust());
+    }
+
+    @Test
+    public void shouldReturnPokemonWhenCandy() throws PokedexException {
+        Pokemon actualMetadata = pokemonFactory.createPokemon(0,613,64,4000,4);
+        assertEquals(validMetadata.getCandy(), actualMetadata.getCandy());
     }
 
     /*@Test
