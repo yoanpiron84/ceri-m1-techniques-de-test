@@ -29,7 +29,7 @@ public class IPokemonMetadataProviderTest {
             int index = invocation.getArgument(0);
             if (index < 0) {
                 throw new PokedexException("Index non valide");
-            } else {
+            } else{
                 return validMetadata;
             }
         });

@@ -7,8 +7,11 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import java.util.ArrayList;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyInt;
 import static org.mockito.Mockito.mock;
 
@@ -17,34 +20,64 @@ public class IPokedexTest {
     @Mock
     private IPokedex pokedex;
 
-    private Pokemon validPokemon;
+    private Pokemon Bulbizarre;
+
+    private Pokemon Aquali;
+
+    private ArrayList<Pokemon> pokemonList;
 
     @BeforeEach
     public void setUp() throws PokedexException {
 
+        pokemonList = new ArrayList<Pokemon>();
+
         pokedex = mock(IPokedex.class);
 
-        validPokemon = new Pokemon(1, "Bulbizarre", 126, 126, 90, 613, 64, 4000, 4, 2.0);
+        Bulbizarre = new Pokemon(0, "Bulbizarre", 126, 126, 90, 613, 64, 4000, 4, 56.0);
 
-        Mockito.when(pokedex.addPokemon(Mockito.any(Pokemon.class))).thenAnswer(invocation -> {
-            Pokemon pokemon = invocation.getArgument(0);
-            System.out.println(pokemon.getIndex());
-            if (pokemon == null) {
-                System.out.println("test");
-                throw new PokedexException("Pokémon non valide");
-            } else {
-                return pokemon.getIndex();
-            }
+        Aquali = new Pokemon(133, "Aquali", 186, 168, 260, 2729, 202, 5000, 4, 100.0);
+
+        pokemonList.add(Bulbizarre);
+        pokemonList.add(Aquali);
+
+        Mockito.when(pokedex.getPokemons()).thenReturn(pokemonList);
+
+        Mockito.when(pokedex.size()).thenReturn(pokemonList.size());
+
+        Mockito.when(pokedex.addPokemon(any(Pokemon.class))).thenAnswer(input -> {
+            Pokemon inputPokemon = input.getArgument(0);
+            pokemonList.add(inputPokemon);
+            return pokemonList.size() - 1;
+        });
+
+        Mockito.when(pokedex.getPokemon(any(Integer.class))).thenAnswer(input -> {
+            int index = input.getArgument(0);
+            return pokemonList.get(index);
         });
     }
 
     @Test
-    public void shouldAddValidPokemon() throws PokedexException {
+    public void shouldReturnPokemonWhenAdd() throws PokedexException {
 
-        int index = pokedex.addPokemon(validPokemon);
+        int index = pokedex.addPokemon(Bulbizarre);
+        assertEquals(Bulbizarre, pokedex.getPokemon(index));
+    }
 
-        // Then
-        assertEquals(validPokemon.getIndex(), index);
+    @Test
+    public void shouldReturnPokemonListSizeWhenSize() {
+        assertEquals(pokedex.size(), pokemonList.size());
+    }
+
+    @Test
+    public void shouldReturnPokemonWhenGet() throws PokedexException {
+        Pokemon p = pokedex.getPokemon(0);
+        assertEquals(p, pokemonList.get(0));
+    }
+
+    @Test
+    public void shouldReturnPokemonListWhenGet() throws PokedexException {
+        pokedex.addPokemon(Bulbizarre);
+        assertEquals(pokedex.getPokemons(), pokemonList);
     }
 
     /*@Test
