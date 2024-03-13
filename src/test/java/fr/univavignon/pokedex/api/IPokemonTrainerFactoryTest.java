@@ -32,8 +32,15 @@ public class IPokemonTrainerFactoryTest {
 
         Mockito.when(pokemonTrainerFactory.createTrainer("", Team.MYSTIC, pokedexFactoryMock)).thenAnswer(invocation -> {
             String pokemonName = invocation.getArgument(0);
+            Team team = invocation.getArgument(1);
             if (pokemonName.equals("")) {
                 throw new PokedexException("Pas de nom !");
+            } else if (team == null) {
+                throw new PokedexException("Team non définie !");
+            } else if (team == null) {
+                throw new PokedexException("Team non définie !");
+            } else if(pokedexFactoryMock == null){
+                throw new PokedexException("Mock non défini !");
             } else {
                 return trainer;
             }
@@ -41,9 +48,21 @@ public class IPokemonTrainerFactoryTest {
     }
 
     @Test
-    public void testCreateTrainer() {
+    public void shouldReturnTrainerWhenCreate() {
         PokemonTrainer pokemonTrainer = new PokemonTrainer("Enzo", Team.MYSTIC, pokedexMock);
         assertEquals(trainer.getName(), pokemonTrainer.getName());
+    }
+
+    @Test
+    public void shouldReturnTrainerWhenTeam() {
+        PokemonTrainer pokemonTrainer = new PokemonTrainer("Enzo", Team.MYSTIC, pokedexMock);
+        assertEquals(trainer.getTeam(), pokemonTrainer.getTeam());
+    }
+
+    @Test
+    public void shouldReturnTrainerWhenPokedex() {
+        PokemonTrainer pokemonTrainer = new PokemonTrainer("Enzo", Team.MYSTIC, pokedexMock);
+        assertEquals(trainer.getPokedex(), pokemonTrainer.getPokedex());
     }
 
     /*@Test
