@@ -82,6 +82,13 @@ public class IPokemonFactoryTest {
         assertEquals(validMetadata.getCandy(), actualMetadata.getCandy());
     }
 
+    @Test
+    public void shouldReturnTrueWhenPokemonIV() throws PokedexException {
+        Pokemon actualPokemon = pokemonFactory.createPokemon(0, 613, 64, 4000, 4);
+        System.out.println(actualPokemon.getIv());
+        assertEquals(true, actualPokemon.getIv() >= 0);
+    }
+
     /*@Test
     public void shouldThrowExceptionWhenIndexNegative() {
         Pokemon actualMetadata = pokemonFactory.createPokemon(0,-613,64,4000,4);
