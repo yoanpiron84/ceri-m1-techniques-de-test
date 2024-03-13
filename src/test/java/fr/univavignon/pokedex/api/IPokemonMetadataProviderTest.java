@@ -36,9 +36,33 @@ public class IPokemonMetadataProviderTest {
     }
 
     @Test
-    public void shouldReturnCorrectPokemon() throws PokedexException {
-        PokemonMetadata pokemonMetadataCorrect = pokemonMetadataProvider.getPokemonMetadata(0);
-        assertEquals(validMetadata, pokemonMetadataCorrect);
+    public void shouldReturnPokemonWhenIndex() throws PokedexException {
+        int index = pokemonMetadataProvider.getPokemonMetadata(0).getIndex();
+        assertEquals(validMetadata.getIndex(), index);
+    }
+
+    @Test
+    public void shouldReturnPokemonWhenName() throws PokedexException {
+        String pokemonName = pokemonMetadataProvider.getPokemonMetadata(0).getName();
+        assertEquals(validMetadata.getName(), pokemonName);
+    }
+
+    @Test
+    public void shouldReturnPokemonWhenAttack() throws PokedexException {
+        int attack = pokemonMetadataProvider.getPokemonMetadata(0).getAttack();
+        assertEquals(validMetadata.getAttack(), attack);
+    }
+
+    @Test
+    public void shouldReturnPokemonWhenDefense() throws PokedexException {
+        int defense = pokemonMetadataProvider.getPokemonMetadata(0).getDefense();
+        assertEquals(validMetadata.getDefense(), defense);
+    }
+
+    @Test
+    public void shouldReturnPokemonWhenStamina() throws PokedexException {
+        int stamina = pokemonMetadataProvider.getPokemonMetadata(0).getStamina();
+        assertEquals(validMetadata.getStamina(), stamina);
     }
 
     /*@Test
