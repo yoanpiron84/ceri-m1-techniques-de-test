@@ -25,6 +25,9 @@ public class IPokedexTest {
 
         pokedex.addPokemon(Bulbizarre);
         pokedex.addPokemon(Aquali);
+
+        pokemonList.add(Bulbizarre);
+        pokemonList.add(Aquali);
     }
 
     @Test
@@ -33,10 +36,10 @@ public class IPokedexTest {
         assertEquals(Bulbizarre, pokedex.getPokemon(index));
     }
 
-    /*@Test
+    @Test
     public void shouldReturnPokemonListSizeWhenSize() {
         assertEquals(pokedex.size(), pokemonList.size());
-    }*/
+    }
 
     @Test
     public void shouldReturnPokemonWhenGet() throws PokedexException {
@@ -44,8 +47,8 @@ public class IPokedexTest {
         assertEquals(p, Bulbizarre);
     }
 
-    /*@Test
+    @Test
     public void shouldReturnPokemonListWhenGet() throws PokedexException {
         assertEquals(pokedex.getPokemons(), pokemonList);
-    }*/
+    }
 }
