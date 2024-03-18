@@ -3,95 +3,81 @@ package fr.univavignon.pokedex.api;
 import org.junit.Before;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.Mock;
-import org.mockito.Mockito;
-import org.mockito.junit.jupiter.MockitoExtension;
-
-import fr.univavignon.pokedex.api.IPokemonFactory;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.mockito.ArgumentMatchers.anyInt;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
-
 
 public class IPokemonFactoryTest {
 
-    @Mock
-    public IPokemonFactory pokemonFactory;
-    private Pokemon validMetadata;
+    private PokemonFactory pokemonFactory;
+    private PokemonMetadataProvider metadataProvider;
 
     @BeforeEach
-    public void setUp() throws PokedexException {
-        pokemonFactory = mock(IPokemonFactory.class);
-
-        validMetadata = new Pokemon(0, "Bulbizarre", 126, 126, 90, 613, 64, 4000, 4, 2.0);
-
-        Mockito.when(pokemonFactory.createPokemon(anyInt(), anyInt(), Mockito.eq(64), Mockito.eq(4000), Mockito.eq(4)
-        )).thenAnswer(invocation -> {
-            int index = invocation.getArgument(0);
-            int cp = invocation.getArgument(1);
-            int hp = invocation.getArgument(2);
-            int dust = invocation.getArgument(3);
-            int candy = invocation.getArgument(4);
-            if (index < 0) {
-                throw new PokedexException("Index non valide");
-            } else if(cp < 0){
-                throw new PokedexException("CP non valide");
-            } else if(hp < 0) {
-                throw new PokedexException("HP non valide");
-            } else if(dust < 0){
-                    throw new PokedexException("Dust non valide");
-            } else if(candy < 0){
-                throw new PokedexException("Candy non valide");
-            } else {
-                return validMetadata;
-            }
-        });
+    public void setUp() {
+        metadataProvider = new PokemonMetadataProvider();
+        pokemonFactory = new PokemonFactory(metadataProvider);
+        metadataProvider.addPokemonMetadata(0, new PokemonMetadata(0, "Bulbizarre", 126, 126, 90));
     }
 
     @Test
     public void shouldReturnPokemonWhenIndex() throws PokedexException {
-        Pokemon actualMetadata = pokemonFactory.createPokemon(0,613,64,4000,4);
-        assertEquals(validMetadata.getIndex(), actualMetadata.getIndex());
+        Pokemon actualPokemon = pokemonFactory.createPokemon(0, 613, 64, 4000, 4);
+        assertEquals(0, actualPokemon.getIndex());
     }
 
     @Test
     public void shouldReturnPokemonWhenCP() throws PokedexException {
-        Pokemon actualMetadata = pokemonFactory.createPokemon(0,613,64,4000,4);
-        assertEquals(validMetadata.getCp(), actualMetadata.getCp());
+        Pokemon actualPokemon = pokemonFactory.createPokemon(0, 613, 64, 4000, 4);
+        assertEquals(613, actualPokemon.getCp());
     }
 
     @Test
     public void shouldReturnPokemonWhenHP() throws PokedexException {
-        Pokemon actualMetadata = pokemonFactory.createPokemon(0,613,64,4000,4);
-        assertEquals(validMetadata.getHp(), actualMetadata.getHp());
+        Pokemon actualPokemon = pokemonFactory.createPokemon(0, 613, 64, 4000, 4);
+        assertEquals(64, actualPokemon.getHp());
     }
 
     @Test
     public void shouldReturnPokemonWhenDust() throws PokedexException {
-        Pokemon actualMetadata = pokemonFactory.createPokemon(0,613,64,4000,4);
-        assertEquals(validMetadata.getDust(), actualMetadata.getDust());
+        Pokemon actualPokemon = pokemonFactory.createPokemon(0, 613, 64, 4000, 4);
+        assertEquals(4000, actualPokemon.getDust());
     }
 
     @Test
     public void shouldReturnPokemonWhenCandy() throws PokedexException {
-        Pokemon actualMetadata = pokemonFactory.createPokemon(0,613,64,4000,4);
-        assertEquals(validMetadata.getCandy(), actualMetadata.getCandy());
+        Pokemon actualPokemon = pokemonFactory.createPokemon(0, 613, 64, 4000, 4);
+        assertEquals(4, actualPokemon.getCandy());
     }
 
     @Test
     public void shouldReturnTrueWhenPokemonIV() throws PokedexException {
         Pokemon actualPokemon = pokemonFactory.createPokemon(0, 613, 64, 4000, 4);
-        System.out.println(actualPokemon.getIv());
-        assertEquals(true, actualPokemon.getIv() >= 0);
+        double iv = actualPokemon.getIv();
+        assertEquals(true, iv >= 0 && iv <= 100);
     }
 
     /*@Test
     public void shouldThrowExceptionWhenIndexNegative() {
-        Pokemon actualMetadata = pokemonFactory.createPokemon(0,-613,64,4000,4);
-        assertEquals(validMetadata, actualMetadata);
+        assertThrows(PokedexException.class, () -> pokemonFactory.createPokemon(-1, 613, 64, 4000, 4));
+    }
+
+    @Test
+    public void shouldThrowExceptionWhenCPNegative() {
+        assertThrows(PokedexException.class, () -> pokemonFactory.createPokemon(0, -613, 64, 4000, 4));
+    }
+
+    @Test
+    public void shouldThrowExceptionWhenHPNegative() {
+        assertThrows(PokedexException.class, () -> pokemonFactory.createPokemon(0, 613, -64, 4000, 4));
+    }
+
+    @Test
+    public void shouldThrowExceptionWhenDustNegative() {
+        assertThrows(PokedexException.class, () -> pokemonFactory.createPokemon(0, 613, 64, -4000, 4));
+    }
+
+    @Test
+    public void shouldThrowExceptionWhenCandyNegative() {
+        assertThrows(PokedexException.class, () -> pokemonFactory.createPokemon(0, 613, 64, 4000, -4));
     }*/
 }

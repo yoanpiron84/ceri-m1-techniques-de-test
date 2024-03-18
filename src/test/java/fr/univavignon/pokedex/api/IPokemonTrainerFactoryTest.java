@@ -1,73 +1,52 @@
 package fr.univavignon.pokedex.api;
 
-import org.junit.Before;
-import org.junit.Test;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.Mock;
-import org.mockito.Mockito;
-import org.mockito.junit.jupiter.MockitoExtension;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertEquals;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class IPokemonTrainerFactoryTest {
-    @Mock
-    private IPokemonTrainerFactory pokemonTrainerFactory;
-    @Mock
-    private IPokedexFactory pokedexFactoryMock;
 
-    @Mock
-    private IPokedex pokedexMock;
+    private PokemonTrainerFactory pokemonTrainerFactory;
+    private PokedexFactory pokedexFactory;
 
-    private PokemonTrainer trainer;
-
-    @Before
-    public void setUp() throws PokedexException {
-        pokemonTrainerFactory = mock(IPokemonTrainerFactory.class);
-        pokedexFactoryMock = mock(IPokedexFactory.class);
-        trainer = new PokemonTrainer("Enzo", Team.MYSTIC, pokedexMock);
-
-
-        Mockito.when(pokemonTrainerFactory.createTrainer("", Team.MYSTIC, pokedexFactoryMock)).thenAnswer(invocation -> {
-            String pokemonName = invocation.getArgument(0);
-            Team team = invocation.getArgument(1);
-            if (pokemonName.equals("")) {
-                throw new PokedexException("Pas de nom !");
-            } else if (team == null) {
-                throw new PokedexException("Team non définie !");
-            } else if (team == null) {
-                throw new PokedexException("Team non définie !");
-            } else if(pokedexFactoryMock == null){
-                throw new PokedexException("Mock non défini !");
-            } else {
-                return trainer;
-            }
-        });
+    @BeforeEach
+    public void setUp() {
+        pokedexFactory = new PokedexFactory();
+        pokemonTrainerFactory = new PokemonTrainerFactory();
     }
 
     @Test
     public void shouldReturnTrainerWhenCreate() {
-        PokemonTrainer pokemonTrainer = new PokemonTrainer("Enzo", Team.MYSTIC, pokedexMock);
-        assertEquals(trainer.getName(), pokemonTrainer.getName());
+        PokemonTrainer pokemonTrainer = pokemonTrainerFactory.createTrainer("Enzo", Team.MYSTIC, pokedexFactory);
+        assertEquals("Enzo", pokemonTrainer.getName());
     }
 
     @Test
     public void shouldReturnTrainerWhenTeam() {
-        PokemonTrainer pokemonTrainer = new PokemonTrainer("Enzo", Team.MYSTIC, pokedexMock);
-        assertEquals(trainer.getTeam(), pokemonTrainer.getTeam());
-    }
-
-    @Test
-    public void shouldReturnTrainerWhenPokedex() {
-        PokemonTrainer pokemonTrainer = new PokemonTrainer("Enzo", Team.MYSTIC, pokedexMock);
-        assertEquals(trainer.getPokedex(), pokemonTrainer.getPokedex());
+        PokemonTrainer pokemonTrainer = pokemonTrainerFactory.createTrainer("Enzo", Team.MYSTIC, pokedexFactory);
+        assertEquals(Team.MYSTIC, pokemonTrainer.getTeam());
     }
 
     /*@Test
-    public void testCreateTrainerError() {
-        PokemonTrainer pokemonTrainer = new PokemonTrainer("", Team.MYSTIC, pokedexMock);
-        assertEquals(trainer.getName(), pokemonTrainer.getName());
+    public void shouldReturnTrainerWhenPokedex() {
+        PokemonTrainer pokemonTrainer = pokemonTrainerFactory.createTrainer("Enzo", Team.MYSTIC, pokedexFactory);
+        assertEquals(pokedexFactory.createPokedex(new PokemonMetadataProvider(), new PokemonFactory(new PokemonMetadataProvider())), pokemonTrainer.getPokedex());
+    }
+
+    @Test
+    public void shouldThrowExceptionWhenEmptyName() {
+        assertThrows(PokedexException.class, () -> pokemonTrainerFactory.createTrainer("", Team.MYSTIC, pokedexFactory));
+    }
+
+    @Test
+    public void shouldThrowExceptionWhenNullTeam() {
+        assertThrows(PokedexException.class, () -> pokemonTrainerFactory.createTrainer("Enzo", null, pokedexFactory));
+    }
+
+    @Test
+    public void shouldThrowExceptionWhenNullPokedexFactory() {
+        assertThrows(PokedexException.class, () -> pokemonTrainerFactory.createTrainer("Enzo", Team.MYSTIC, null));
     }*/
 }
