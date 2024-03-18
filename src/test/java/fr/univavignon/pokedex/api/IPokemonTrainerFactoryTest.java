@@ -3,8 +3,7 @@ package fr.univavignon.pokedex.api;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class IPokemonTrainerFactoryTest {
 
@@ -27,6 +26,7 @@ public class IPokemonTrainerFactoryTest {
     public void shouldReturnTrainerWhenTeam() {
         PokemonTrainer pokemonTrainer = pokemonTrainerFactory.createTrainer("Enzo", Team.MYSTIC, pokedexFactory);
         assertEquals(Team.MYSTIC, pokemonTrainer.getTeam());
+        assertNotNull(pokemonTrainer.getPokedex());
     }
 
     /*@Test
