@@ -7,17 +7,14 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.mockito.Mockito.mock;
 
 public class IPokedexFactoryTest {
     private PokedexFactory pokedexFactory;
-    private IPokemonMetadataProvider metadataProvider;
-    private IPokemonFactory pokemonFactory;
+    private PokemonMetadataProvider metadataProvider;
+    private PokemonFactory pokemonFactory;
 
     @Before
     public void setUp() throws PokedexException {
-        metadataProvider = mock(IPokemonMetadataProvider.class);
-        pokemonFactory = mock(IPokemonFactory.class);
         pokedexFactory = new PokedexFactory();
     }
 
