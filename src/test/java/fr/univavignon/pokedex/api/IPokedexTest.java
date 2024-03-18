@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class IPokedexTest {
 
@@ -15,13 +15,23 @@ public class IPokedexTest {
     private Pokemon Aquali;
     private List<Pokemon> pokemonList;
 
+    PokemonFactory pokemonFactory;
+    PokemonMetadataProvider pokemonMetadataProvider;
+    PokedexFactory pokedexFactory;
+
     @BeforeEach
-    public void setUp() {
+    public void setUp() throws PokedexException {
+
+        pokemonFactory = new PokemonFactory();
+        pokemonMetadataProvider = new PokemonMetadataProvider();
+        pokedexFactory = new PokedexFactory();
+
         pokemonList = new ArrayList<>();
         pokedex = new Pokedex(new PokemonMetadataProvider(), new PokemonFactory());
 
-        Bulbizarre = new Pokemon(0, "Bulbizarre", 126, 126, 90, 613, 64, 4000, 4, 56.0);
-        Aquali = new Pokemon(133, "Aquali", 186, 168, 260, 2729, 202, 5000, 4, 100.0);
+        pokedex = pokedexFactory.createPokedex(pokemonMetadataProvider, pokemonFactory);
+        Bulbizarre = pokedex.createPokemon(0, 613, 64, 4000, 4);
+        Aquali = pokedex.createPokemon(133, 2729, 202, 5000, 4);
 
         pokedex.addPokemon(Bulbizarre);
         pokedex.addPokemon(Aquali);
@@ -48,7 +58,31 @@ public class IPokedexTest {
     }
 
     @Test
-    public void shouldReturnPokemonListWhenGet() throws PokedexException {
+    public void shouldReturnPokemonList() {
         assertEquals(pokedex.getPokemons(), pokemonList);
+        assertNotNull(pokedex.getPokemons());
+        assertNotNull(pokedex.getPokemons(PokemonComparators.NAME));
+    }
+
+    @Test
+    public void shouldThrowPokedexException() throws PokedexException {
+        assertThrows(PokedexException.class, () -> {
+            pokedex.getPokemon(156);
+        });
+    }
+
+    @Test
+    public void shouldReturnPokemonMetadata() throws PokedexException {
+        int index = pokedex.getPokemon(0).getIndex();
+        String name = pokedex.getPokemon(0).getName();
+        int attack = pokedex.getPokemon(0).getAttack();
+        int defense = pokedex.getPokemon(0).getDefense();
+        int stamina = pokedex.getPokemon(0).getStamina();
+        assertEquals(index, pokemonMetadataProvider.getPokemonMetadata(0).getIndex());
+        assertEquals(name, pokemonMetadataProvider.getPokemonMetadata(0).getName());
+        assertEquals(attack, pokemonMetadataProvider.getPokemonMetadata(0).getAttack());
+        assertEquals(defense, pokemonMetadataProvider.getPokemonMetadata(0).getDefense());
+        assertEquals(stamina, pokemonMetadataProvider.getPokemonMetadata(0).getStamina());
+        assertEquals(pokemonMetadataProvider.getPokemonMetadata(0), pokedex.getPokemonMetadata(0));
     }
 }
