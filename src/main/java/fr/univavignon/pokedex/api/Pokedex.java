@@ -7,12 +7,15 @@ import java.util.List;
 
 public class Pokedex implements IPokedex {
 
-    private List<Pokemon> pokemonList;
-    private IPokemonMetadataProvider metadataProvider;
+    List<Pokemon> pokemonList;
 
-    public Pokedex(IPokemonMetadataProvider metadataProvider) {
-        this.pokemonList = new ArrayList<>();
+    IPokemonFactory pokemonFactory;
+    IPokemonMetadataProvider metadataProvider;
+
+    public Pokedex(IPokemonMetadataProvider metadataProvider, IPokemonFactory pokemonFactory) {
+        this.pokemonList = new ArrayList<Pokemon>();
         this.metadataProvider = metadataProvider;
+        this.pokemonFactory = pokemonFactory;
     }
 
     @Override
@@ -28,10 +31,12 @@ public class Pokedex implements IPokedex {
 
     @Override
     public Pokemon getPokemon(int id) throws PokedexException {
-        if (id < 0 || id >= pokemonList.size()) {
-            throw new PokedexException("Invalid index: " + id);
+        for(Pokemon buffer : pokemonList) {
+            if(buffer.getIndex() == id) {
+                return buffer;
+            }
         }
-        return pokemonList.get(id);
+        throw new PokedexException("Pokemon does not exist !");
     }
 
     @Override
@@ -42,7 +47,7 @@ public class Pokedex implements IPokedex {
     @Override
     public List<Pokemon> getPokemons(Comparator<Pokemon> order) {
         List<Pokemon> sortedPokemons = new ArrayList<>(pokemonList);
-        Collections.sort(sortedPokemons, order);
+        sortedPokemons.sort(order);
         return Collections.unmodifiableList(sortedPokemons);
     }
 
@@ -51,22 +56,9 @@ public class Pokedex implements IPokedex {
         return metadataProvider.getPokemonMetadata(index);
     }
 
+
     @Override
-    public Pokemon createPokemon(int index, int cp, int hp, int dust, int candy) {
-        double iv = Math.random() * 100;
-        String name = null;
-        int attack = 0;
-        int defense = 0;
-        int stamina = 0;
-        try {
-            PokemonMetadata metadata = metadataProvider.getPokemonMetadata(index);
-            name = metadata.getName();
-            attack = metadata.getAttack();
-            defense = metadata.getDefense();
-            stamina = metadata.getStamina();
-        } catch (PokedexException e) {
-            e.printStackTrace();
-        }
-        return new Pokemon(index, name, attack, defense, stamina, cp, hp, dust, candy, iv);
+    public Pokemon createPokemon(int index, int cp, int hp, int dust, int candy) throws PokedexException {
+        return pokemonFactory.createPokemon(index, cp, hp, dust, candy);
     }
 }

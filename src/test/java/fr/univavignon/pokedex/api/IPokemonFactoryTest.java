@@ -4,55 +4,56 @@ import org.junit.Before;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class IPokemonFactoryTest {
 
     private PokemonFactory pokemonFactory;
-    private PokemonMetadataProvider metadataProvider;
+
+    private Pokemon Aquali;
+    private Pokemon Bulbizarre;
 
     @BeforeEach
     public void setUp() {
-        metadataProvider = new PokemonMetadataProvider();
-        pokemonFactory = new PokemonFactory(metadataProvider);
-        metadataProvider.addPokemonMetadata(0, new PokemonMetadata(0, "Bulbizarre", 126, 126, 90));
+        pokemonFactory = new PokemonFactory();
+        Bulbizarre = new Pokemon(0, "Bulbizarre", 126,126,90,613,64,4000,4,56);
+        Aquali = new Pokemon(133,"Aquali",186,168,260,2729,202,5000,4,100);
+    }
+
+    @Test
+    public void createPokemonTest() throws PokedexException {
+        assertNotNull(pokemonFactory.createPokemon(0, 613, 64, 4000, 4));
+        assertNotNull(pokemonFactory.createPokemon(133, 2729, 202, 5000, 4));
     }
 
     @Test
     public void shouldReturnPokemonWhenIndex() throws PokedexException {
-        Pokemon actualPokemon = pokemonFactory.createPokemon(0, 613, 64, 4000, 4);
-        assertEquals(0, actualPokemon.getIndex());
+        assertEquals(0, pokemonFactory.createPokemon(0, 613, 64, 4000, 4).getIndex());
     }
 
     @Test
     public void shouldReturnPokemonWhenCP() throws PokedexException {
-        Pokemon actualPokemon = pokemonFactory.createPokemon(0, 613, 64, 4000, 4);
-        assertEquals(613, actualPokemon.getCp());
+        assertEquals(Bulbizarre.getCp(), pokemonFactory.createPokemon(0, 613, 64, 4000, 4).getCp());
     }
 
     @Test
     public void shouldReturnPokemonWhenHP() throws PokedexException {
-        Pokemon actualPokemon = pokemonFactory.createPokemon(0, 613, 64, 4000, 4);
-        assertEquals(64, actualPokemon.getHp());
+        assertEquals(Bulbizarre.getHp(), pokemonFactory.createPokemon(0, 613, 64, 4000, 4).getHp());
     }
 
     @Test
     public void shouldReturnPokemonWhenDust() throws PokedexException {
-        Pokemon actualPokemon = pokemonFactory.createPokemon(0, 613, 64, 4000, 4);
-        assertEquals(4000, actualPokemon.getDust());
+        assertEquals(Bulbizarre.getDust(), pokemonFactory.createPokemon(0, 613, 64, 4000, 4).getDust());
     }
 
     @Test
     public void shouldReturnPokemonWhenCandy() throws PokedexException {
-        Pokemon actualPokemon = pokemonFactory.createPokemon(0, 613, 64, 4000, 4);
-        assertEquals(4, actualPokemon.getCandy());
+        assertEquals(Bulbizarre.getCandy(), pokemonFactory.createPokemon(0, 613, 64, 4000, 4).getCandy());
     }
 
     @Test
     public void shouldReturnTrueWhenPokemonIV() throws PokedexException {
-        Pokemon actualPokemon = pokemonFactory.createPokemon(0, 613, 64, 4000, 4);
-        double iv = actualPokemon.getIv();
+        double iv = pokemonFactory.createPokemon(0, 613, 64, 4000, 4).getIv();
         assertEquals(true, iv >= 0 && iv <= 100);
     }
 

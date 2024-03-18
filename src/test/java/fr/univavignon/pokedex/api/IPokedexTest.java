@@ -18,7 +18,7 @@ public class IPokedexTest {
     @BeforeEach
     public void setUp() {
         pokemonList = new ArrayList<>();
-        pokedex = new Pokedex(new PokemonMetadataProvider());
+        pokedex = new Pokedex(new PokemonMetadataProvider(), new PokemonFactory());
 
         Bulbizarre = new Pokemon(0, "Bulbizarre", 126, 126, 90, 613, 64, 4000, 4, 56.0);
         Aquali = new Pokemon(133, "Aquali", 186, 168, 260, 2729, 202, 5000, 4, 100.0);

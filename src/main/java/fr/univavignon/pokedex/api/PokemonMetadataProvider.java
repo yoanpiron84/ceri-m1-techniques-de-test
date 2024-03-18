@@ -1,26 +1,30 @@
 package fr.univavignon.pokedex.api;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
 public class PokemonMetadataProvider implements IPokemonMetadataProvider {
 
-    private Map<Integer, PokemonMetadata> metadataMap;
+    ArrayList<PokemonMetadata> pokemonMetadataArrayList;
 
     public PokemonMetadataProvider() {
-        this.metadataMap = new HashMap<>();
+        this.pokemonMetadataArrayList = new ArrayList<PokemonMetadata>();
+        pokemonMetadataArrayList.add(new PokemonMetadata(0, "Bulbizarre", 126, 126,90));
+        pokemonMetadataArrayList.add(new PokemonMetadata(133,"Aquali",186,168,260));
     }
 
     @Override
     public PokemonMetadata getPokemonMetadata(int index) throws PokedexException {
-        if (!metadataMap.containsKey(index)) {
-            throw new PokedexException("Metadata not found for index: " + index);
+        if(index < 0 || index > 150) {
+            throw new PokedexException("Index invalid !");
         }
-        return metadataMap.get(index);
-    }
-
-    public void addPokemonMetadata(int index, PokemonMetadata metadata) {
-        metadataMap.put(index, metadata);
+        for(PokemonMetadata buffer : pokemonMetadataArrayList) {
+            if(buffer.getIndex() == index) {
+                return buffer;
+            }
+        }
+        return null;
     }
 }
 
