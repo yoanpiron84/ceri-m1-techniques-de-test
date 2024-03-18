@@ -1,12 +1,10 @@
 package fr.univavignon.pokedex.api;
 
-import fr.univavignon.pokedex.api.IPokemonMetadataProvider;
-
-import org.junit.Before;
 import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThrows;
 
 public class IPokemonMetadataProviderTest {
 
@@ -51,11 +49,8 @@ public class IPokemonMetadataProviderTest {
         assertEquals(validMetadata.getStamina(), stamina);
     }
 
-
-    /*@Test
+    @Test(expected = PokedexException.class)
     public void shouldThrowWhenInvalidIndex() throws PokedexException {
-        PokemonMetadata actualMetadata = pokemonMetadataProvider.getPokemonMetadata(-2);
-        assertEquals(validMetadata, actualMetadata);
-    }*/
-
+        pokemonMetadataProvider.getPokemonMetadata(-2);
+    }
 }
