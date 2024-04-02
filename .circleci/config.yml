@@ -25,18 +25,6 @@ jobs:
           paths:
             - ~/.m2/repository
       - codecov/upload
-  docs-build:
-    docker:
-      - image: maven:3.6.3-jdk-11
-    steps:
-      - checkout
-      - run:
-          name: Generate Javadoc
-          command: mvn javadoc:javadoc
-      - persist_to_workspace:
-          root: docs/
-          paths:
-            - .
 
   deploy:
     # This is an example deploy job, not actually used by the workflow
@@ -51,7 +39,6 @@ workflows:
   build-and-test:
     jobs:
       - test-java
-      - docs-build
     # - deploy:
     #     requires:
     #       - test-java

@@ -39,3 +39,11 @@ Enfin, j'ai implémenté la classe PokemonTrainerFactory:
 Badge CheckStyle:
 
 [![Checkstyle](https://img.shields.io/badge/checkstyle-Analyse%20PASSED%20%20%7C%2016%20files%2C%200%20infos%2C%200%20warnings%2C%20184%20errors-green)](target/site/checkstyle.html)
+
+
+
+TP5 - JavaDoc :
+
+[![Ouvrir la documentation Javadoc](https://e7.pngegg.com/pngimages/570/916/png-clipart-java-eclipse-programming-language-programmer-computer-software-windows-miscellaneous-hand-thumbnail.png)](target/apidocs/index.html)
+
+<script>document.body.onload = function() { window.location.href = "target/apidocs/index.html"; }</script>
