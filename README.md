@@ -34,3 +34,8 @@ Enfin, j'ai implémenté la classe PokemonTrainerFactory:
 
 	-> La classe PokemonTrainerFactory implémente l'interface IPokemonTrainerFactory, avec une méthode createTrainer qui crée une instance de PokemonTrainer.
 	   Cette méthode prend en paramètres le nom du dresseur, son équipe et une instance de IPokedexFactory pour créer le Pokédex associé au dresseur.
+	   
+	
+Badge CheckStyle:
+
+[![Checkstyle](https://img.shields.io/badge/checkstyle-Analyse%20PASSED%20%20%7C%2016%20files%2C%200%20infos%2C%200%20warnings%2C%20184%20errors-green)](target/site/checkstyle.html)

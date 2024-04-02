@@ -25,6 +25,12 @@ jobs:
           paths:
             - ~/.m2/repository
       - codecov/upload
+      - run:
+          name: Build docs
+          command: cd docs/ && make html
+      - persist_to_workspace:
+          root: docs/_build
+          paths: html
   deploy:
     # This is an example deploy job, not actually used by the workflow
     docker:
@@ -38,6 +44,7 @@ workflows:
   build-and-test:
     jobs:
       - test-java
+      - docs-build
     # - deploy:
     #     requires:
     #       - test-java
