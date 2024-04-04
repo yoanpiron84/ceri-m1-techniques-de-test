@@ -32,12 +32,15 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Move Javadoc to gh-pages branch
+          name: Copy Javadoc to gh-pages branch
           command: |
-            mv target/site/apidocs/* .
+            mkdir -p docs
+            cp -r target/site/apidocs/* docs/
+            cd docs
+            git init
             git add .
             git commit -m "Update Javadoc"
-            git push origin gh-pages
+            git push --force --quiet "https://${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" master:gh-pages
 workflows:
   build-and-test:
     jobs:
