@@ -26,19 +26,22 @@ jobs:
             - ~/.m2/repository
       - codecov/upload
 
-  deploy:
-    # This is an example deploy job, not actually used by the workflow
+  deploy-docs:
     docker:
       - image: cimg/base:stable
     steps:
-      # Replace this with steps to deploy to users
+      - checkout
       - run:
-          name: deploy
-          command: '#e.g. ./deploy.sh'
+          name: Move Javadoc to gh-pages branch
+          command: |
+            mv target/site/apidocs/* .
+            git add .
+            git commit -m "Update Javadoc"
+            git push origin gh-pages
 workflows:
   build-and-test:
     jobs:
       - test-java
-    # - deploy:
-    #     requires:
-    #       - test-java
+      - deploy-docs:
+          requires:
+            - test-java
