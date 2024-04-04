@@ -42,9 +42,10 @@ jobs:
             mkdir -p docs
             cp -r target/site/apidocs/* docs/
             cd docs
+            git init
             git add .
-            git commit -m "Update Javadoc" 
-            git push --force origin gh-pages
+            git commit -m "Update Javadoc"
+            git push --force origin HEAD:gh-pages
 
 workflows:
   build-and-test:
