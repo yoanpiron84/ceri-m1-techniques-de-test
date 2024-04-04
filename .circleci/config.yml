@@ -32,6 +32,11 @@ jobs:
     steps:
       - checkout
       - run:
+          name: Set Git user identity
+          command: |
+            git config --global user.email "yoan.piron@alumni.univ-avignon.fr"
+            git config --global user.name "yoanpiron84"
+      - run:
           name: Copy Javadoc to gh-pages branch
           command: |
             mkdir -p docs
