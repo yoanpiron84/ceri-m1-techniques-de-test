@@ -34,7 +34,7 @@ jobs:
       - run:
           name: Move Javadoc to gh-pages branch
           command: |
-            mv ../target/site/apidocs/* .
+            mv target/site/apidocs/* .
             git add .
             git commit -m "Update Javadoc"
             git push origin gh-pages
