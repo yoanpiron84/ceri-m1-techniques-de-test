@@ -45,7 +45,8 @@ jobs:
             git init
             git add .
             git commit -m "Update Javadoc"
-            git push --force origin HEAD:gh-pages
+            git remote add origin git@github.com:yoanpiron84/ceri-m1-techniques-de-test.git
+            git push --force origin gh-pages
 
 workflows:
   build-and-test:
