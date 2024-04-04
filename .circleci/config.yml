@@ -46,8 +46,7 @@ jobs:
             git checkout -b gh-pages
             git add .
             git commit -m "Update Javadoc"
-            git remote add origin_with_token "https://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@github.com/yoanpiron84/ceri-m1-techniques-de-test.git"
-            git push origin_with_token gh-pages
+            git push origin gh-pages
 
 workflows:
   build-and-test:
