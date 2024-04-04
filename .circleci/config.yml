@@ -32,13 +32,16 @@ jobs:
     steps:
       - checkout
       - run:
+            name: Set up Git user
+            command: |
+              git config --global user.email "yoan.piron@alumni.univ-avignon.fr"
+              git config --global user.name "yoanpiron84"
+      - run:
           name: Copy Javadoc to gh-pages branch
           command: |
             mkdir -p docs
             cp -r target/site/apidocs/* docs/
             cd docs
-            git config user.email "yoan.piron@alumni.univ-avignon.fr"
-            git config user.name "yoanpiron84"
             git init
             git add .
             git commit -m "Update Javadoc"
