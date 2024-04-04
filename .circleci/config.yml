@@ -26,38 +26,7 @@ jobs:
             - ~/.m2/repository
       - codecov/upload
 
-  deploy-docs:
-    docker:
-      - image: cimg/base:stable
-    steps:
-      - checkout
-      - run:
-          name: Set Git user identity
-          command: |
-            git config --global user.email "yoan.piron@alumni.univ-avignon.fr"
-            git config --global user.name "yoanpiron84"
-      - run:
-          name: Copy Javadoc to gh-pages branch
-          command: |
-            mkdir -p docs
-            cp -r target/site/apidocs/* docs/
-            echo "test"
-            cd docs
-            echo "test1"
-            git init
-            git add .
-            echo "test2"
-            git commit -m "Update Javadoc"
-            echo "test3"
-            git remote add origin https://github.com/yoanpiron84/ceri-m1-techniques-de-test.git
-            echo "test4"
-            git push origin gh-pages
-            echo "test5"
-
 workflows:
   build-and-test:
     jobs:
       - test-java
-      - deploy-docs:
-          requires:
-            - test-java
