@@ -1,0 +1,59 @@
+@options
+@argfile
+-encoding
+'UTF-8'
+-protected
+-sourcepath
+'C:/Users/yoanp/IdeaProjects/ceri-m1-techniques-de-test/src/main/java;C:/Users/yoanp/IdeaProjects/ceri-m1-techniques-de-test/target/generated-sources/annotations'
+-author
+-bottom
+'Copyright &#169; 2024. All rights reserved.'
+-charset
+'UTF-8'
+-d
+'C:/Users/yoanp/IdeaProjects/ceri-m1-techniques-de-test/target/site/apidocs'
+-docencoding
+'UTF-8'
+-doctitle
+'TP 1.0 API'
+-linkoffline
+'https://docs.oracle.com/javase/8/docs/api' 'C:/Users/yoanp/IdeaProjects/ceri-m1-techniques-de-test/target/javadoc-bundle-options'
+-use
+-version
+-windowtitle
+'TP 1.0 API'
+'C:/Users/yoanp/IdeaProjects/ceri-m1-techniques-de-test/src/main/java/fr/univavignon/pokedex/api/IPokedex.java'
+'C:/Users/yoanp/IdeaProjects/ceri-m1-techniques-de-test/src/main/java/fr/univavignon/pokedex/api/IPokedexFactory.java'
+'C:/Users/yoanp/IdeaProjects/ceri-m1-techniques-de-test/src/main/java/fr/univavignon/pokedex/api/IPokemonFactory.java'
+'C:/Users/yoanp/IdeaProjects/ceri-m1-techniques-de-test/src/main/java/fr/univavignon/pokedex/api/IPokemonMetadataProvider.java'
+'C:/Users/yoanp/IdeaProjects/ceri-m1-techniques-de-test/src/main/java/fr/univavignon/pokedex/api/IPokemonTrainerFactory.java'
+'C:/Users/yoanp/IdeaProjects/ceri-m1-techniques-de-test/src/main/java/fr/univavignon/pokedex/api/Pokedex.java'
+'C:/Users/yoanp/IdeaProjects/ceri-m1-techniques-de-test/src/main/java/fr/univavignon/pokedex/api/PokedexException.java'
+'C:/Users/yoanp/IdeaProjects/ceri-m1-techniques-de-test/src/main/java/fr/univavignon/pokedex/api/PokedexFactory.java'
+'C:/Users/yoanp/IdeaProjects/ceri-m1-techniques-de-test/src/main/java/fr/univavignon/pokedex/api/Pokemon.java'
+'C:/Users/yoanp/IdeaProjects/ceri-m1-techniques-de-test/src/main/java/fr/univavignon/pokedex/api/PokemonComparators.java'
+'C:/Users/yoanp/IdeaProjects/ceri-m1-techniques-de-test/src/main/java/fr/univavignon/pokedex/api/PokemonFactory.java'
+'C:/Users/yoanp/IdeaProjects/ceri-m1-techniques-de-test/src/main/java/fr/univavignon/pokedex/api/PokemonMetadata.java'
+'C:/Users/yoanp/IdeaProjects/ceri-m1-techniques-de-test/src/main/java/fr/univavignon/pokedex/api/PokemonMetadataProvider.java'
+'C:/Users/yoanp/IdeaProjects/ceri-m1-techniques-de-test/src/main/java/fr/univavignon/pokedex/api/PokemonTrainer.java'
+'C:/Users/yoanp/IdeaProjects/ceri-m1-techniques-de-test/src/main/java/fr/univavignon/pokedex/api/PokemonTrainerFactory.java'
+'C:/Users/yoanp/IdeaProjects/ceri-m1-techniques-de-test/src/main/java/fr/univavignon/pokedex/api/Team.java'
+C:\Users\yoanp\IdeaProjects\ceri-m1-techniques-de-test\src\main\java = 1712245235869
+C:\Users\yoanp\IdeaProjects\ceri-m1-techniques-de-test\target\generated-sources\annotations = 1712252985095
+C:\Users\yoanp\IdeaProjects\ceri-m1-techniques-de-test\target\site\apidocs\allclasses-index.html = 1712253000817
+C:\Users\yoanp\IdeaProjects\ceri-m1-techniques-de-test\target\site\apidocs\allpackages-index.html = 1712253000823
+C:\Users\yoanp\IdeaProjects\ceri-m1-techniques-de-test\target\site\apidocs\element-list = 1712253000518
+C:\Users\yoanp\IdeaProjects\ceri-m1-techniques-de-test\target\site\apidocs\help-doc.html = 1712253000902
+C:\Users\yoanp\IdeaProjects\ceri-m1-techniques-de-test\target\site\apidocs\index-all.html = 1712253000886
+C:\Users\yoanp\IdeaProjects\ceri-m1-techniques-de-test\target\site\apidocs\index.html = 1712253000892
+C:\Users\yoanp\IdeaProjects\ceri-m1-techniques-de-test\target\site\apidocs\jquery-ui.overrides.css = 1712253000950
+C:\Users\yoanp\IdeaProjects\ceri-m1-techniques-de-test\target\site\apidocs\member-search-index.js = 1712253000837
+C:\Users\yoanp\IdeaProjects\ceri-m1-techniques-de-test\target\site\apidocs\module-search-index.js = 1712253000826
+C:\Users\yoanp\IdeaProjects\ceri-m1-techniques-de-test\target\site\apidocs\overview-tree.html = 1712253000761
+C:\Users\yoanp\IdeaProjects\ceri-m1-techniques-de-test\target\site\apidocs\package-search-index.js = 1712253000831
+C:\Users\yoanp\IdeaProjects\ceri-m1-techniques-de-test\target\site\apidocs\script.js = 1712253000911
+C:\Users\yoanp\IdeaProjects\ceri-m1-techniques-de-test\target\site\apidocs\search.js = 1712253000916
+C:\Users\yoanp\IdeaProjects\ceri-m1-techniques-de-test\target\site\apidocs\serialized-form.html = 1712253000581
+C:\Users\yoanp\IdeaProjects\ceri-m1-techniques-de-test\target\site\apidocs\stylesheet.css = 1712253000907
+C:\Users\yoanp\IdeaProjects\ceri-m1-techniques-de-test\target\site\apidocs\tag-search-index.js = 1712253000840
+C:\Users\yoanp\IdeaProjects\ceri-m1-techniques-de-test\target\site\apidocs\type-search-index.js = 1712253000834
