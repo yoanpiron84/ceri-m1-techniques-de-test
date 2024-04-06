@@ -38,10 +38,10 @@ Enfin, j'ai implémenté la classe PokemonTrainerFactory:
 	
 Badge CheckStyle:
 
-[![Checkstyle](https://img.shields.io/badge/checkstyle-Analyse%20PASSED%20%20%7C%2016%20files%2C%200%20infos%2C%200%20warnings%2C%200%20errors-green)](target/site/checkstyle.html)
+[![Checkstyle](https://img.shields.io/badge/checkstyle%20(click%20for%20details)%20-Analyse%20PASSED%20%20%7C%2016%20files%2C%200%20infos%2C%200%20warnings%2C%200%20errors-green)](https://yoanpiron84.github.io/ceri-m1-techniques-de-test/target/site/checkstyle.html)
 
 
 
 TP5 - JavaDoc :
 
-[![Ouvrir la documentation Javadoc](https://e7.pngegg.com/pngimages/570/916/png-clipart-java-eclipse-programming-language-programmer-computer-software-windows-miscellaneous-hand-thumbnail.png)](target/apidocs/index.html)
+[![Ouvrir la documentation Javadoc](https://img.shields.io/badge/javadoc%20(click%20for%20details)%20-3.3.0-green)](https://yoanpiron84.github.io/ceri-m1-techniques-de-test/target/site/apidocs/fr/univavignon/pokedex/api/package-summary.html)
