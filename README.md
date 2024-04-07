@@ -38,7 +38,7 @@ Enfin, j'ai implémenté la classe PokemonTrainerFactory:
 	
 Badge CheckStyle:
 
-[![Checkstyle](https://img.shields.io/badge/checkstyle%20(click%20for%20details)%20-Analyse%20PASSED%20%20%7C%2016%20files%2C%200%20infos%2C%200%20warnings%2C%200%20errors-green)](https://yoanpiron84.github.io/ceri-m1-techniques-de-test/target/site/checkstyle.html)
+[![Checkstyle](target/site/badges/checkstyle-result.svg)](https://yoanpiron84.github.io/ceri-m1-techniques-de-test/target/site/checkstyle.html)
 
 
 

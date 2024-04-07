@@ -1,18 +1,5 @@
-#Sat Apr 06 09:45:35 CEST 2024
-configuration*?=12F0AC766B291C60ACF2EF0453E4690942B52B90
-C\:\\Users\\yoanp\\IdeaProjects\\ceri-m1-techniques-de-test\\src\\main\\java\\fr\\univavignon\\pokedex\\api\\Team.java=1712250129666
-C\:\\Users\\yoanp\\IdeaProjects\\ceri-m1-techniques-de-test\\src\\main\\java\\fr\\univavignon\\pokedex\\api\\Pokedex.java=1712249066522
-C\:\\Users\\yoanp\\IdeaProjects\\ceri-m1-techniques-de-test\\src\\main\\java\\fr\\univavignon\\pokedex\\api\\IPokedex.java=1712249018228
-C\:\\Users\\yoanp\\IdeaProjects\\ceri-m1-techniques-de-test\\src\\main\\java\\fr\\univavignon\\pokedex\\api\\PokemonMetadataProvider.java=1710781700365
-C\:\\Users\\yoanp\\IdeaProjects\\ceri-m1-techniques-de-test\\src\\main\\java\\fr\\univavignon\\pokedex\\api\\PokemonTrainer.java=1712250396147
-C\:\\Users\\yoanp\\IdeaProjects\\ceri-m1-techniques-de-test\\src\\main\\java\\fr\\univavignon\\pokedex\\api\\PokemonTrainerFactory.java=1710779912290
-C\:\\Users\\yoanp\\IdeaProjects\\ceri-m1-techniques-de-test\\src\\main\\java\\fr\\univavignon\\pokedex\\api\\IPokedexFactory.java=1712249001716
-C\:\\Users\\yoanp\\IdeaProjects\\ceri-m1-techniques-de-test\\src\\main\\java\\fr\\univavignon\\pokedex\\api\\PokedexFactory.java=1710779890193
+#Sun Apr 07 11:00:56 CEST 2024
+configuration*?=AE3B6DB4E9D82EE4601F3F1BB722CF81465840D7
 C\:\\Users\\yoanp\\IdeaProjects\\ceri-m1-techniques-de-test\\src\\main\\java\\fr\\univavignon\\pokedex\\api\\PokedexException.java=1712249852892
-C\:\\Users\\yoanp\\IdeaProjects\\ceri-m1-techniques-de-test\\src\\main\\java\\fr\\univavignon\\pokedex\\api\\PokemonComparators.java=1712250237983
-C\:\\Users\\yoanp\\IdeaProjects\\ceri-m1-techniques-de-test\\src\\main\\java\\fr\\univavignon\\pokedex\\api\\IPokemonTrainerFactory.java=1712250163730
-C\:\\Users\\yoanp\\IdeaProjects\\ceri-m1-techniques-de-test\\src\\main\\java\\fr\\univavignon\\pokedex\\api\\IPokemonMetadataProvider.java=1712250156555
-C\:\\Users\\yoanp\\IdeaProjects\\ceri-m1-techniques-de-test\\src\\main\\java\\fr\\univavignon\\pokedex\\api\\IPokemonFactory.java=1712249040444
-C\:\\Users\\yoanp\\IdeaProjects\\ceri-m1-techniques-de-test\\src\\main\\java\\fr\\univavignon\\pokedex\\api\\Pokemon.java=1712250377118
-C\:\\Users\\yoanp\\IdeaProjects\\ceri-m1-techniques-de-test\\src\\main\\java\\fr\\univavignon\\pokedex\\api\\PokemonFactory.java=1710780311314
-C\:\\Users\\yoanp\\IdeaProjects\\ceri-m1-techniques-de-test\\src\\main\\java\\fr\\univavignon\\pokedex\\api\\PokemonMetadata.java=1712250364434
+module-resource*?\:checkstyle-xpath-suppressions.xml=DAD639D36266FB33BFED7F872C228DEF64B603AD
+module-resource*?\:checkstyle-suppressions.xml=CBE45808F9BB383E058344ABEFCACD37BBE2AB7D
