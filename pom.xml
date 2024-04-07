@@ -40,6 +40,11 @@ http://maven.apache.org/maven-v4_0_0.xsd"
             <version>4.9.0</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-collections4</artifactId>
+            <version>4.0</version>
+        </dependency>
     </dependencies>
 
     <name>TP</name>

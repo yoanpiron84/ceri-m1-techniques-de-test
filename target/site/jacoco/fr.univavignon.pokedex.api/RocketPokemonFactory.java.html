@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>RocketPokemonFactory.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">TP</a> &gt; <a href="index.source.html" class="el_package">fr.univavignon.pokedex.api</a> &gt; <span class="el_source">RocketPokemonFactory.java</span></div><h1>RocketPokemonFactory.java</h1><pre class="source lang-java linenums">package fr.univavignon.pokedex.api;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Random;
+
+import org.apache.commons.collections4.map.UnmodifiableMap;
+
+/**
+ * This class represents a factory for creating Pokemon instances,
+ * specifically designed for Rocket Team.
+ */
+<span class="fc" id="L13">public class RocketPokemonFactory implements IPokemonFactory {</span>
+
+/**
+ * Map to store the association between Pokemon index and their names.
+ */
+private static Map&lt;Integer, String&gt; indexToName;
+static {
+<span class="fc" id="L20">Map&lt;Integer, String&gt; aMap = new HashMap&lt;Integer, String&gt;();</span>
+<span class="fc" id="L21">aMap.put(-1, &quot;Ash's Pikachu&quot;);</span>
+<span class="fc" id="L22">aMap.put(0, &quot;MISSINGNO&quot;);</span>
+<span class="fc" id="L23">aMap.put(1, &quot;Bulbasaur&quot;);</span>
+<span class="fc" id="L24">indexToName = UnmodifiableMap.unmodifiableMap(aMap);</span>
+<span class="fc" id="L25">}</span>
+
+/**
+ * Generates a random stat value.
+ *
+ * @return Randomly generated stat value
+ */
+private static int generateRandomStat() {
+<span class="fc" id="L33">int total = 0;</span>
+<span class="fc bfc" id="L34" title="All 2 branches covered.">for (int i = 0; i &lt; 1000000; i++) {</span>
+<span class="fc" id="L35">Random rn = new Random();</span>
+<span class="fc" id="L36">int r = rn.nextInt(2);</span>
+<span class="fc" id="L37">total += r;</span>
+}
+<span class="fc" id="L39">return total / 10000;</span>
+}
+
+/**
+ * Creates a Pokemon instance.
+ *
+ * @param index The index of the Pokemon
+ * @param cp The combat power of the Pokemon
+ * @param hp The hit points of the Pokemon
+ * @param dust The dust needed to power up the Pokemon
+ * @param candy The candy needed to evolve the Pokemon
+ * @return The created Pokemon instance
+ */
+@Override
+public Pokemon createPokemon(int index, int cp, int hp, int dust, int candy) {
+String name;
+<span class="fc bfc" id="L55" title="All 2 branches covered.">if(!indexToName.containsKey(index)) {</span>
+<span class="fc" id="L56">name = indexToName.get(0);</span>
+} else {
+<span class="fc" id="L58">name = indexToName.get(index);</span>
+}
+int attack;
+int defense;
+int stamina;
+double iv;
+<span class="pc bpc" id="L64" title="1 of 2 branches missed.">if(index &lt; 0) {</span>
+<span class="nc" id="L65">attack = 1000;</span>
+<span class="nc" id="L66">defense = 1000;</span>
+<span class="nc" id="L67">stamina = 1000;</span>
+<span class="nc" id="L68">iv = 0;</span>
+} else {
+<span class="fc" id="L70">attack = RocketPokemonFactory.generateRandomStat();</span>
+<span class="fc" id="L71">defense = RocketPokemonFactory.generateRandomStat();</span>
+<span class="fc" id="L72">stamina = RocketPokemonFactory.generateRandomStat();</span>
+<span class="fc" id="L73">iv = 1;</span>
+}
+<span class="fc" id="L75">return new Pokemon(index, name, attack, defense, stamina, cp, hp, dust, candy, iv);</span>
+}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>
