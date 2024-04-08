@@ -36,6 +36,7 @@ Random rn = new Random();
 int r = rn.nextInt(2);
 total += r;
 }
+System.out.println(total / 10000);
 return total / 10000;
 }
 

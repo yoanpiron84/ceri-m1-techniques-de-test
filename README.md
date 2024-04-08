@@ -26,7 +26,7 @@ Ces deux classes me permettent donc d'implémenter la classe Pokedex:
 	   
 	   
 Ensuite, j'ai implémenté la classe PokedexFactory:
-
+ 
 	-> La classe PokedexFactory implémente IPokedexFactory et crée une instance de Pokedex en utilisant un fournisseur de métadonnées de Pokémon.
 	
 	
